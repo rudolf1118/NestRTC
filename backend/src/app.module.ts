@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RoomController } from './rooms/room.controller';
-import { RoomService } from './rooms/room.service';
 import { RoomModule } from './rooms/room.module';
 import { ConfigModule } from "@nestjs/config";
 import configurations from './configurations/database.config'
 import { ConfigService } from "@nestjs/config";
+import { UsersModule } from './users/users.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -27,9 +27,9 @@ import { ConfigService } from "@nestjs/config";
       }),
       inject: [ConfigService]
     }),
-    RoomModule
+    RoomModule,
+    UsersModule
   ],
-  controllers: [RoomController, RoomController],
-  providers: [RoomService],
+  controllers: [AppController],
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm'
+import { ManyToOne, Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, OneToOne } from 'typeorm'
+import { User } from '../users/user.entity'
 
 @Entity()
 export class Room {
@@ -8,12 +9,15 @@ export class Room {
     @Column({ nullable: true })
     title: string;
 
-    @Column()
-    owner: string;
+    @ManyToOne(() => User, (user) => user, { nullable: false, eager: true })
+    owner: User;
 
     @CreateDateColumn()
     createdAt;
 
     @Column({ type: 'timestamptz', nullable: true })
     expiryAt?: Date;
+
+    @Column({ default: 3 })
+    maxParticipants: number;
 }
