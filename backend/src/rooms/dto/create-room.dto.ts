@@ -1,7 +1,8 @@
-import { IsOptional, IsInt, Min, Max, IsUUID} from 'class-validator'
+import { IsOptional, IsInt, Min, Max, IsUUID, IsNotEmpty} from 'class-validator'
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
 
 export class CreateRoomDto {
+    @IsNotEmpty()
     owner: CreateUserDto;
   
     @IsOptional()
@@ -11,8 +12,9 @@ export class CreateRoomDto {
     @IsInt()
     @Min(2)
     @Max(7)
-    maxParticipants: number;
+    maxParticipants?: number;
 
     @IsOptional()
+    @Min(4)
     title?: string;
   }

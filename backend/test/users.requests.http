@@ -1,0 +1,15 @@
+
+
+###
+# Get Users by id (UUID)
+GET http://localhost:3000/users/d9fff843-049b-497f-9651-0eabba422bf3
+
+
+###
+# Create User 
+POST http://localhost:3000/users/create
+Content-Type: application/json
+
+{
+    "nickname": "rudolf1118"
+}

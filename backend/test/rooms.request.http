@@ -1,0 +1,13 @@
+# Create Room
+POST http://localhost:3000/rooms/create
+
+{
+    "owner": {
+     "id": "1e54e96c-db2f-4ca3-8985-d106cc899b63"
+    }
+}
+
+
+###
+# Get Room by ID
+GET http://localhost:3000/rooms/07ccec38-ba5f-44c1-b4e6-2d949c3a1f06

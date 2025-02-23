@@ -7,9 +7,9 @@ export class Room {
     id: string;
 
     @Column({ nullable: true })
-    title: string;
+    title?: string;
 
-    @ManyToOne(() => User, (user) => user, { nullable: false, eager: true })
+    @ManyToOne(() => User, (user) => user.rooms, { nullable: true, eager: true })
     owner: User;
 
     @CreateDateColumn()

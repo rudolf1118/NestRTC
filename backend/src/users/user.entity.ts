@@ -12,6 +12,6 @@ export class User {
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date
 
-  @OneToMany(() => Room,  (room) => room.owner )
+  @OneToMany(() => Room,  (room) => room.owner, { nullable: true })
     rooms: Room[]
 }
