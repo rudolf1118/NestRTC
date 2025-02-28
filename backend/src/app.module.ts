@@ -6,6 +6,7 @@ import configurations from './configurations/database.config'
 import { ConfigService } from "@nestjs/config";
 import { UsersModule } from './users/users.module';
 import { AppController } from './app.controller';
+import { GatewayModule } from './gateway/gateway.module';
 
 @Module({
   imports: [
@@ -28,7 +29,8 @@ import { AppController } from './app.controller';
       inject: [ConfigService]
     }),
     RoomModule,
-    UsersModule
+    UsersModule,
+    GatewayModule
   ],
   controllers: [AppController],
 })
